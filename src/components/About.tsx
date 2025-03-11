@@ -39,8 +39,8 @@ const About = () => {
                 <p className="text-sm text-gray-600">Projects Completed</p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
-                <p className="text-sm text-gray-600">Design Awards</p>
+                <div className="text-4xl font-bold text-red-600 mb-2">200+</div>
+                <p className="text-sm text-gray-600">Happy Customers</p>
               </div>
             </div>
           </div>
