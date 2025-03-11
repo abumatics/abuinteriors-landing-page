@@ -13,7 +13,7 @@ const Services = () => {
     {
       title: "Ceiling Design",
       description: "Our ceiling design services include custom designs, lighting solutions, and innovative finishes that transform your interiors.",
-      image: "https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=800&auto=format"
+      image: "/lovable-uploads/in4.jpg"
     },
     {
       title: "Wall Panels",
