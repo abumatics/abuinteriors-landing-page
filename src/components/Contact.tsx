@@ -152,82 +152,97 @@ const Contact = () => {
           <div className="md:col-span-3 animate-slide-up animate-delay-3">
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h3 className="text-2xl font-serif mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                    placeholder="Your first name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                    placeholder="Your last name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                    placeholder="Your phone number"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                    placeholder="Your email address"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
-                    placeholder="Tell us about your project..."
-                  />
-                </div>
-                <div className="md:col-span-2 flex justify-end mt-4">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="px-10 py-3 rounded-lg bg-red-600 text-white font-medium transition-colors hover:bg-red-700 shadow-md disabled:opacity-70"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
-                </div>
-              </form>
+             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      value={formData.firstName}
+      onChange={handleChange}
+      required
+      pattern="[A-Za-z\s]+"
+      title="Only letters are allowed"
+      className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+      placeholder="Your first name"
+    />
+  </div>
+  
+  <div>
+    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      value={formData.lastName}
+      onChange={handleChange}
+      required
+      pattern="[A-Za-z\s]+"
+      title="Only letters are allowed"
+      className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+      placeholder="Your last name"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      value={formData.phone}
+      onChange={handleChange}
+      required
+      pattern="\d{10}"
+      inputMode="numeric"
+      title="Please enter a valid 10-digit phone number"
+      className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+      placeholder="Your phone number"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+      pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+      title="Email must be a valid @gmail.com address"
+      className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+      placeholder="Your email address"
+    />
+  </div>
+
+  <div className="md:col-span-2">
+    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      required
+      rows={5}
+      className="w-full px-4 py-3 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"
+      placeholder="Tell us about your project..."
+    />
+  </div>
+
+  <div className="md:col-span-2 flex justify-end mt-4">
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className="px-10 py-3 rounded-lg bg-red-600 text-white font-medium transition-colors hover:bg-red-700 shadow-md disabled:opacity-70"
+    >
+      {isSubmitting ? 'Sending...' : 'Send Message'}
+    </button>
+  </div>
+</form>
+
             </div>
           </div>
         </div>
